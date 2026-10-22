@@ -36,10 +36,9 @@ jobs:
       - name: Install Python dependencies
         run: |
           pixi install
-
       - name: Install Chromium for Playwright
         run: |
-          pixi run python -m playwright install --with-deps chromium
+          PLAYWRIGHT_HOST_PLATFORM_OVERRIDE=ubuntu24.04-x64 pixi run python -m playwright install --with-deps chromium
 
       - name: Create .env
         run: |
